@@ -5,7 +5,7 @@
 
     <IsPackable>true</IsPackable>
     <Title>MessagePack for C# (.NET 9) Extension Support for ReactiveProperty</Title>
-    <Description>Extremely Fast MessagePack Serializer for C# (.NET 9)targeting modern .NET 9. Extension support for ReactiveProperty.</Description>
+    <Description>Extremely Fast MessagePack Serializer for C# (.NET 9) targeting modern .NET 9. Extension support for ReactiveProperty.</Description>
     <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;ReactiveProperty;NET9</PackageTags>
   </PropertyGroup>
 
