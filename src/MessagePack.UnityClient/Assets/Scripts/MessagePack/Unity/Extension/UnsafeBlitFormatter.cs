@@ -58,7 +58,7 @@ namespace MessagePack.Unity.Extension
 
             // Allocate a T[] that we will return. We'll then cast the T[] as byte[] so we can copy the byte sequence directly into it.
             var result = new T[byteLength / Marshal.SizeOf<T>()];
-            Span<byte> resultAsBytes = MemoryMarshal.Cast<T, byte>(result);
+            Span<byte> resultAsBytes = MemoryMarshal.Cast<T, byte>(result.AsSpan());
             reader.ReadRaw(byteLength).CopyTo(resultAsBytes);
 
             // Reverse the byte order if necessary.

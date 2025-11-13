@@ -44,7 +44,13 @@ public static partial class CSharpCodeFixVerifier<TAnalyzer, TCodeFix>
 
         private static string ReadManifestResource(Assembly assembly, string resourceName)
         {
-            using (var reader = new StreamReader(assembly.GetManifestResourceStream(resourceName) ?? throw new ArgumentException("No such resource stream", nameof(resourceName))))
+            var stream = assembly.GetManifestResourceStream(resourceName);
+            if (stream == null)
+            {
+                throw new ArgumentException("No such resource stream", nameof(resourceName));
+            }
+
+            using (var reader = new StreamReader(stream))
             {
                 return reader.ReadToEnd();
             }

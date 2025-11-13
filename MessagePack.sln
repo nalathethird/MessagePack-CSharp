@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29108.181
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11205.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{86309CF6-0054-4CE3-BFD3-CA0AA7DB17BC}"
 EndProject
@@ -25,8 +25,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicCodeDumper", "sandbox\DynamicCodeDumper\DynamicCodeDumper.csproj", "{8E511130-F838-4B47-842B-0FB27AD175B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedData", "sandbox\SharedData\SharedData.csproj", "{3ABC5C4C-2CE4-459E-8666-F2B181C3DEF3}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagePack.UnityShims", "src\MessagePack.UnityShims\MessagePack.UnityShims.csproj", "{C01E1407-7FEC-4C1D-B0B4-74D95A317AA6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagePack.ReactiveProperty", "src\MessagePack.ReactiveProperty\MessagePack.ReactiveProperty.csproj", "{166A16C0-B89F-41AF-956A-235C6CA62C25}"
 EndProject
@@ -56,11 +54,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagePack.AspNetCoreMvcFormatter.Tests", "tests\MessagePack.AspNetCoreMvcFormatter.Tests\MessagePack.AspNetCoreMvcFormatter.Tests.csproj", "{79C2B2CB-872A-4BA9-82DC-60F6DD77F940}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagePack.Annotations", "src\MessagePack.Annotations\MessagePack.Annotations.csproj", "{85763F30-7733-44AB-89AB-D1B64F6E0D93}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5BAF9120-1293-449E-975C-A373E9DE7F69}"
-	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmark", "benchmark", "{51A614B0-E583-4DD2-AC7D-6A65634582E0}"
 EndProject
@@ -114,10 +107,6 @@ Global
 		{3ABC5C4C-2CE4-459E-8666-F2B181C3DEF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ABC5C4C-2CE4-459E-8666-F2B181C3DEF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ABC5C4C-2CE4-459E-8666-F2B181C3DEF3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C01E1407-7FEC-4C1D-B0B4-74D95A317AA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C01E1407-7FEC-4C1D-B0B4-74D95A317AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C01E1407-7FEC-4C1D-B0B4-74D95A317AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C01E1407-7FEC-4C1D-B0B4-74D95A317AA6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{166A16C0-B89F-41AF-956A-235C6CA62C25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{166A16C0-B89F-41AF-956A-235C6CA62C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{166A16C0-B89F-41AF-956A-235C6CA62C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -212,7 +201,6 @@ Global
 		{ED43BDA5-947C-4769-A47A-F07D3C6142AE} = {BF4C4202-5015-4FBD-80E6-D0F36A06F700}
 		{8E511130-F838-4B47-842B-0FB27AD175B5} = {BF4C4202-5015-4FBD-80E6-D0F36A06F700}
 		{3ABC5C4C-2CE4-459E-8666-F2B181C3DEF3} = {BF4C4202-5015-4FBD-80E6-D0F36A06F700}
-		{C01E1407-7FEC-4C1D-B0B4-74D95A317AA6} = {86309CF6-0054-4CE3-BFD3-CA0AA7DB17BC}
 		{166A16C0-B89F-41AF-956A-235C6CA62C25} = {86309CF6-0054-4CE3-BFD3-CA0AA7DB17BC}
 		{E066F547-7261-4561-AEFC-E64DBFD874F8} = {86309CF6-0054-4CE3-BFD3-CA0AA7DB17BC}
 		{2F9A6E0C-DE95-4460-96B7-EB72BBEAEE9E} = {86309CF6-0054-4CE3-BFD3-CA0AA7DB17BC}

@@ -4,20 +4,28 @@
     <TargetFramework>net9.0</TargetFramework>
 
     <IsPackable>true</IsPackable>
-    <Title>MessagePack for C# (.NET 9) Extension Support for ReactiveProperty</Title>
-    <Description>Extremely Fast MessagePack Serializer for C# (.NET 9)targeting modern .NET 9. Extension support for ReactiveProperty.</Description>
-    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;ReactiveProperty;NET9</PackageTags>
+    <Title>MessagePack for C# (.NET 9 &amp; .NET 10) Extension Support for ReactiveProperty</Title>
+    <Description>Extremely Fast MessagePack Serializer for C# targeting modern .NET 9 and .NET 10. Extension support for ReactiveProperty.</Description>
+    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;ReactiveProperty;NET9;NET10;Reactive</PackageTags>
+    
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="ReactivePropertySlimResolver.cs" />
     <Compile Remove="SlimFormatter.cs" />
-    <PackageReference Include="System.Reactive.PlatformServices" Version="3.1.1" />
-    <PackageReference Include="ReactiveProperty" Version="4.2.2" />
+    <PackageReference Include="System.Reactive" Version="6.1.0" />
+    <PackageReference Include="ReactiveProperty" Version="9.7.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MessagePack\MessagePack.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.9.50" />
   </ItemGroup>
 
 </Project>

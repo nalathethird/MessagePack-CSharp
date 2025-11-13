@@ -13,21 +13,38 @@
 
     <!-- NuGet Info -->
     <PackageId>MessagePack.Generator</PackageId>
-    <Title>MessagePack Code Generator</Title>
-    <Description>MessagePack standalone code generator.</Description>
-    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;Unity;Xamarin;NET9</PackageTags>
+    <Title>MessagePack Code Generator for NET 9 and NET 10</Title>
+    <Description>MessagePack standalone code generator for .NET 9 and .NET 10 with source generation support.</Description>
+    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;CodeGen;SourceGenerator;NET9;NET10</PackageTags>
+    
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ConsoleAppFramework" Version="3.3.2" />
-    <PackageReference Include="Microsoft.Build.Locator" Version="1.4.1" />
-    <PackageReference Include="Microsoft.Build.Framework" Version="16.5.0" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.Build" Version="16.5.0" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.0.1" />
+    <PackageReference Include="ConsoleAppFramework" Version="5.7.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Build.Locator" Version="1.10.12" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="18.0.2" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.Build" Version="18.0.2" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.14.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
+    <PackageReference Include="Microsoft.NETCore.Jit" Version="2.0.8" />
+    <PackageReference Include="NuGet.Common" Version="7.0.0" />
+    <PackageReference Include="NuGet.Packaging" Version="7.0.0" />
+    <PackageReference Include="NuGet.Protocol" Version="7.0.0" />
+    <PackageReference Include="System.Text.Json" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MessagePack.GeneratorCore\MessagePack.GeneratorCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.9.50" />
   </ItemGroup>
 
 </Project>

@@ -16,6 +16,7 @@ using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Order;
 using BenchmarkDotNet.Reports;
 using BenchmarkDotNet.Running;
+using Perfolizer.Metrology;
 
 namespace Benchmark
 {
@@ -42,6 +43,11 @@ namespace Benchmark
         {
             public bool SeparateLogicalGroups => false;
 
+            public IEnumerable<BenchmarkCase> GetExecutionOrder(ImmutableArray<BenchmarkCase> benchmarksCase, IEnumerable<BenchmarkLogicalGroupRule>? order)
+            {
+                return GetExecutionOrder(benchmarksCase);
+            }
+
             public IEnumerable<BenchmarkCase> GetExecutionOrder(ImmutableArray<BenchmarkCase> benchmarksCase)
             {
                 return benchmarksCase;
@@ -55,6 +61,11 @@ namespace Benchmark
             public string GetLogicalGroupKey(ImmutableArray<BenchmarkCase> allBenchmarksCases, BenchmarkCase benchmarkCase)
             {
                 return null;
+            }
+
+            public IEnumerable<IGrouping<string, BenchmarkCase>> GetLogicalGroupOrder(IEnumerable<IGrouping<string, BenchmarkCase>> logicalGroups, IEnumerable<BenchmarkLogicalGroupRule>? order)
+            {
+                return GetLogicalGroupOrder(logicalGroups);
             }
 
             public IEnumerable<IGrouping<string, BenchmarkCase>> GetLogicalGroupOrder(IEnumerable<IGrouping<string, BenchmarkCase>> logicalGroups)
@@ -108,12 +119,15 @@ namespace Benchmark
                 var bytes = (byte[])mi.Invoke(instance, null);
                 var byteSize = bytes.Length;
                 var cultureInfo = summary.GetCultureInfo();
+                var sizeValue = SizeValue.FromBytes(byteSize);
+                var sizeUnit = style.SizeUnit ?? SizeUnit.B;
+                var valueInUnit = SizeUnit.Convert(byteSize, SizeUnit.B, sizeUnit);
+                var formatted = valueInUnit.ToString("0.##", cultureInfo);
                 if (style.PrintUnitsInContent)
                 {
-                    return SizeValue.FromBytes(byteSize).ToString(style.SizeUnit, cultureInfo);
+                    return $"{formatted} {sizeUnit.Abbreviation}";
                 }
-
-                return byteSize.ToString("0.##", cultureInfo);
+                return formatted;
             }
 
             public bool IsAvailable(Summary summary)

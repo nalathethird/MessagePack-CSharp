@@ -6,7 +6,7 @@ namespace MessagePack
     /// <summary>
     /// The extension type codes that this library defines for just this library.
     /// </summary>
-    internal static class ThisLibraryExtensionTypeCodes
+    public static class ThisLibraryExtensionTypeCodes
     {
         /// <summary>
         /// For Unity's UnsafeBlitFormatter.
@@ -61,16 +61,16 @@ namespace MessagePack
         /// <summary>
         /// The LZ4 array block compression extension.
         /// </summary>
-        internal const sbyte Lz4BlockArray = 98;
+        public const sbyte Lz4BlockArray = 98;
 
         /// <summary>
         /// The LZ4 single block compression extension.
         /// </summary>
-        internal const sbyte Lz4Block = 99;
+        public const sbyte Lz4Block = 99;
 
         /// <summary>
         /// For the <see cref="Formatters.TypelessFormatter"/>.
         /// </summary>
-        internal const sbyte TypelessFormatter = 100;
+        public const sbyte TypelessFormatter = 100;
     }
 }

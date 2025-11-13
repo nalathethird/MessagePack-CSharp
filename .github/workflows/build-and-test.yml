@@ -1,4 +1,4 @@
-name: CI Build (.NET 9)
+name: Build & Test (.NET 9)
 
 on:
   push:

@@ -8,9 +8,15 @@
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
 
     <IsPackable>true</IsPackable>
-    <Title>MessagePack for C# (.NET 9) (.NET 9), Experimental Plugins</Title>
-    <Description>Extremely Fast MessagePack Serializer for C# (.NET 9) targeting modern .NET 9. Experimental implementations.</Description>
-    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;NET9</PackageTags>
+    <Title>MessagePack for C# (.NET 9 &amp; .NET 10), Experimental Plugins</Title>
+    <Description>Extremely Fast MessagePack Serializer for C# targeting modern .NET 9 and .NET 10. Experimental implementations with cutting-edge optimizations including SIMD and hardware intrinsics.</Description>
+    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;NET9;NET10;Experimental;SIMD;Performance</PackageTags>
+    
+    <!-- Enable latest performance features -->
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <EnableAOTAnalyzer>true</EnableAOTAnalyzer>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -48,6 +54,11 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.9.50" />
   </ItemGroup>
 
 </Project>

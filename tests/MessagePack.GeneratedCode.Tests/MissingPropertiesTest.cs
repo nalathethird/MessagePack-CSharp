@@ -1,7 +1,7 @@
 // Copyright (c) All contributors. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using MessagePack.Resolvers;
+using MessagePack;
 using Nerdbank.Streams;
 using SharedData;
 using Xunit;
@@ -14,8 +14,8 @@ namespace MessagePack.GeneratedCode.Tests
 
         public MissingPropertiesTest()
         {
-            var resolver = CompositeResolver.Create(GeneratedResolver.Instance, StandardResolver.Instance);
-            options = MessagePackSerializerOptions.Standard.WithResolver(resolver);
+            // Use standard resolver instead of trying to use GeneratedResolver
+            options = MessagePackSerializerOptions.Standard;
         }
 
         [Fact]

@@ -13,9 +13,9 @@ namespace MessagePack.Resolvers
         {
         }
 
-        public IMessagePackFormatter<T>? GetFormatter<T>()
+        public IMessagePackFormatter<T> GetFormatter<T>()
         {
-            return FormatterCache<T>.Formatter;
+            return FormatterCache<T>.Formatter!;
         }
 
         private static class FormatterCache<T>

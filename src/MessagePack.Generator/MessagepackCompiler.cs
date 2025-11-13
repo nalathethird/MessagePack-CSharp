@@ -14,10 +14,11 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.MSBuild;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace MessagePack.Generator
 {
-    public class MessagepackCompiler : ConsoleAppBase
+    public class MessagepackCompiler
     {
         private static async Task Main(string[] args)
         {
@@ -33,20 +34,34 @@ namespace MessagePack.Generator
                 return null;
             };
 
-            await Host.CreateDefaultBuilder()
-                .ConfigureLogging(logging => logging.ReplaceToSimpleConsole())
-                .RunConsoleAppFrameworkAsync<MessagepackCompiler>(args);
+            var app = ConsoleApp.Create();
+            app.Add("", RunAsync);
+            await app.RunAsync(args);
         }
 
-        public async Task RunAsync(
-            [Option("i", "Input path to MSBuild project file or the directory containing Unity source files.")] string input,
-            [Option("o", "Output file path(.cs) or directory (multiple generate file).")] string output,
-            [Option("c", "Conditional compiler symbols, split with ','. Ignored if a project file is specified for input.")] string? conditionalSymbol = null,
-            [Option("r", "Set resolver name.")] string resolverName = "GeneratedResolver",
-            [Option("n", "Set namespace root name.")] string @namespace = "MessagePack",
-            [Option("m", "Force use map mode serialization.")] bool useMapMode = false,
-            [Option("ms", "Generate #if-- files by symbols, split with ','.")] string? multipleIfDirectiveOutputSymbols = null,
-            [Option("ei", "Ignore type names.")] string[]? externalIgnoreTypeNames = null)
+        /// <summary>
+        /// MessagePack Code Generator.
+        /// </summary>
+        /// <param name="input">-i, Input path to MSBuild project file or the directory containing Unity source files.</param>
+        /// <param name="output">-o, Output file path(.cs) or directory (multiple generate file).</param>
+        /// <param name="conditionalSymbol">-c, Conditional compiler symbols, split with ','. Ignored if a project file is specified for input.</param>
+        /// <param name="resolverName">-r, Set resolver name.</param>
+        /// <param name="namespace">-n, Set namespace root name.</param>
+        /// <param name="useMapMode">-m, Force use map mode serialization.</param>
+        /// <param name="multipleIfDirectiveOutputSymbols">-ms, Generate #if-- files by symbols, split with ','.</param>
+        /// <param name="externalIgnoreTypeNames">-ei, Ignore type names.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        public static async Task RunAsync(
+            string input,
+            string output,
+            string? conditionalSymbol = null,
+            string resolverName = "GeneratedResolver",
+            string @namespace = "MessagePack",
+            bool useMapMode = false,
+            string? multipleIfDirectiveOutputSymbols = null,
+            string[]? externalIgnoreTypeNames = null,
+            CancellationToken cancellationToken = default)
         {
             Workspace? workspace = null;
             try
@@ -55,14 +70,14 @@ namespace MessagePack.Generator
                 if (Directory.Exists(input))
                 {
                     string[]? conditionalSymbols = conditionalSymbol?.Split(',');
-                    compilation = await PseudoCompilation.CreateFromDirectoryAsync(input, conditionalSymbols, this.Context.CancellationToken);
+                    compilation = await PseudoCompilation.CreateFromDirectoryAsync(input, conditionalSymbols, cancellationToken);
                 }
                 else
                 {
-                    (workspace, compilation) = await this.OpenMSBuildProjectAsync(input, this.Context.CancellationToken);
+                    (workspace, compilation) = await OpenMSBuildProjectAsync(input, cancellationToken);
                 }
 
-                await new MessagePackCompiler.CodeGenerator(x => Console.WriteLine(x), this.Context.CancellationToken)
+                await new MessagePackCompiler.CodeGenerator(x => Console.WriteLine(x), cancellationToken)
                     .GenerateFileAsync(
                         compilation,
                         output,
@@ -83,7 +98,7 @@ namespace MessagePack.Generator
             }
         }
 
-        private async Task<(Workspace Workspace, Compilation Compilation)> OpenMSBuildProjectAsync(string projectPath, CancellationToken cancellationToken)
+        private static async Task<(Workspace Workspace, Compilation Compilation)> OpenMSBuildProjectAsync(string projectPath, CancellationToken cancellationToken)
         {
             var workspace = MSBuildWorkspace.Create();
             try

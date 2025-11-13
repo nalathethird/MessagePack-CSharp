@@ -7,30 +7,41 @@
     <LangVersion>latest</LangVersion>
 
     <IsPackable>true</IsPackable>
-    <Title>MessagePack for C# (.NET 9) (.NET 9)</Title>
-    <Description>Extremely Fast MessagePack(MsgPack) Serializer for C# (.NET 9) targeting modern .NET 9.</Description>
-    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;NET9</PackageTags>
+    <Title>MessagePack for C# (.NET 9 &amp; .NET 10)</Title>
+    <Description>Extremely Fast MessagePack(MsgPack) Serializer for C# targeting modern .NET 9 and .NET 10 with cutting-edge performance optimizations.</Description>
+    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;NET9;NET10;Performance;Binary</PackageTags>
     <AssemblyName>MessagePack</AssemblyName>
     <TargetFramework>net9.0</TargetFramework>
+    
+    <!-- Performance optimizations -->
+    <Optimize>true</Optimize>
+    <TieredCompilation>true</TieredCompilation>
+    <TieredCompilationQuickJit>true</TieredCompilationQuickJit>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <IsTrimmable>true</IsTrimmable>
+    <EnableAOTAnalyzer>true</EnableAOTAnalyzer>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\**\*.cs" Exclude="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\Annotations\**;&#xD;&#xA;                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\Unity\**;&#xD;&#xA;                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\T4\**;&#xD;&#xA;                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\_InternalVisibleTo.cs" />
+    <!-- Include Unity source files but exclude Unity-specific, Annotations, T4, and FloatBits -->
+    <Compile Include="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\**\*.cs" 
+             Exclude="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\Annotations\**;
+                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\Unity\**;
+                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\T4\**;
+                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\FloatBits.cs;
+                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\_InternalVisibleTo.cs" />
     <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" PrivateAssets="all" Version="3.3.4" />
-    <PackageReference Include="Microsoft.NET.StringTools" PrivateAssets="compile" Version="17.7.0" />
-    <PackageReference Include="System.Collections.Immutable" Version="9.0.0" />
-    <PackageReference Update="Nerdbank.GitVersioning" Version="3.6.133" />
-    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.7.30" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\FloatBits.cs" />
+    <PackageReference Include="Microsoft.NET.StringTools" PrivateAssets="compile" Version="18.0.2" />
+    <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.9.50" />
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" />
   </ItemGroup>
 
   <ItemGroup>
     <AdditionalFiles Include="$(TargetFramework)\PublicAPI.Shipped.txt" />
     <AdditionalFiles Include="$(TargetFramework)\PublicAPI.Unshipped.txt" />
   </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\MessagePack.Annotations\MessagePack.Annotations.csproj" />
   </ItemGroup>
@@ -108,4 +119,5 @@
 
     <Copy SourceFiles="@(UnityT4Source)" DestinationFiles="@(UnityT4Target)" SkipUnchangedFiles="true" UseHardlinksIfPossible="true" />
   </Target>
+
 </Project>

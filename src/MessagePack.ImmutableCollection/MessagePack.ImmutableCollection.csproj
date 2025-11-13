@@ -4,13 +4,21 @@
     <TargetFramework>net9.0</TargetFramework>
 
     <IsPackable>true</IsPackable>
-    <Title>MessagePack for C# (.NET 9) Extension Support for ImmutableCollection</Title>
+    <Title>MessagePack for C# (.NET 9 &amp; .NET 10) Extension Support for ImmutableCollection</Title>
     <Description>Deprecated package to add System.Collections.Immutable support to MessagePack. This is now built into the main package.</Description>
-    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;NET9</PackageTags>
+    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;NET9;NET10;ImmutableCollections</PackageTags>
+    
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MessagePack\MessagePack.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.9.50" />
   </ItemGroup>
 
 </Project>

@@ -60,11 +60,11 @@ namespace Benchmark
         [Params(1, 64, 1024, 16 * 1024 * 1024)]
         public int Size { get; set; }
 
-        private Matrix4x4[] input;
-        private byte[] inputSerializedUnsafe;
-        private byte[] inputSerializedNormal;
+        private Matrix4x4[] input = Array.Empty<Matrix4x4>();
+        private byte[] inputSerializedUnsafe = Array.Empty<byte>();
+        private byte[] inputSerializedNormal = Array.Empty<byte>();
 
-        private newmsgpack::MessagePack.MessagePackSerializerOptions options;
+        private newmsgpack::MessagePack.MessagePackSerializerOptions? options;
 
         [GlobalSetup]
         public void SetUp()
@@ -86,7 +86,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeUnsafe()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options!);
         }
 
         [Benchmark]
@@ -96,13 +96,13 @@ namespace Benchmark
         }
 
         [Benchmark]
-        public Matrix4x4[] DeserializeUnsafe()
+        public Matrix4x4[] DeSerializeUnsafe()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Deserialize<Matrix4x4[]>(inputSerializedUnsafe, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Deserialize<Matrix4x4[]>(inputSerializedUnsafe, options!);
         }
 
         [Benchmark]
-        public Matrix4x4[] DeserializeNormal()
+        public Matrix4x4[] DeSerializeNormal()
         {
             return newmsgpack::MessagePack.MessagePackSerializer.Deserialize<Matrix4x4[]>(inputSerializedNormal);
         }
@@ -114,11 +114,11 @@ namespace Benchmark
         [Params(64, 1024, 16 * 1024 * 1024)]
         public int Size { get; set; }
 
-        private bool[] input;
-        private byte[] inputSerialized;
-        private bool[] inputTrue;
-        private bool[] inputFalse;
-        private newmsgpack::MessagePack.MessagePackSerializerOptions options;
+        private bool[] input = Array.Empty<bool>();
+        private byte[] inputSerialized = Array.Empty<byte>();
+        private bool[] inputTrue = Array.Empty<bool>();
+        private bool[] inputFalse = Array.Empty<bool>();
+        private newmsgpack::MessagePack.MessagePackSerializerOptions? options;
 
         [GlobalSetup]
         public void SetUp()
@@ -148,7 +148,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleData()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options!);
         }
 
         [Benchmark]
@@ -160,11 +160,11 @@ namespace Benchmark
         [Benchmark]
         public bool[] DeSerializeSingleInstructionMultipleData()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Deserialize<bool[]>(inputSerialized, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Deserialize<bool[]>(inputSerialized, options!);
         }
 
         [Benchmark]
-        public bool[] DeserializeNoSingleInstructionMultipleData()
+        public bool[] DeSerializeNoSingleInstructionMultipleData()
         {
             return oldmsgpack::MessagePack.MessagePackSerializer.Deserialize<bool[]>(inputSerialized);
         }
@@ -172,7 +172,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleDataFalse()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputFalse, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputFalse, options!);
         }
 
         [Benchmark]
@@ -184,7 +184,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleDataTrue()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputTrue, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputTrue, options!);
         }
 
         [Benchmark]
@@ -200,11 +200,11 @@ namespace Benchmark
         [Params(64, 1024, 16 * 1024 * 1024)]
         public int Size { get; set; }
 
-        private sbyte[] input;
-        private sbyte[] inputM32;
-        private sbyte[] inputM33;
-        private sbyte[] zero;
-        private newmsgpack::MessagePack.MessagePackSerializerOptions options;
+        private sbyte[] input = Array.Empty<sbyte>();
+        private sbyte[] inputM32 = Array.Empty<sbyte>();
+        private sbyte[] inputM33 = Array.Empty<sbyte>();
+        private sbyte[] zero = Array.Empty<sbyte>();
+        private newmsgpack::MessagePack.MessagePackSerializerOptions? options;
 
         [GlobalSetup]
         public void SetUp()
@@ -234,7 +234,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleData()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options!);
         }
 
         [Benchmark]
@@ -246,37 +246,19 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleDataZero()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(zero, options);
-        }
-
-        [Benchmark]
-        public byte[] SerializeNoSingleInstructionMultipleDataZero()
-        {
-            return oldmsgpack::MessagePack.MessagePackSerializer.Serialize(zero);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(zero, options!);
         }
 
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleDataM32()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputM32, options);
-        }
-
-        [Benchmark]
-        public byte[] SerializeNoSingleInstructionMultipleDataM32()
-        {
-            return oldmsgpack::MessagePack.MessagePackSerializer.Serialize(inputM32);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputM32, options!);
         }
 
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleDataM33()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputM33, options);
-        }
-
-        [Benchmark]
-        public byte[] SerializeNoSingleInstructionMultipleDataM33()
-        {
-            return oldmsgpack::MessagePack.MessagePackSerializer.Serialize(inputM33);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputM33, options!);
         }
     }
 
@@ -286,9 +268,9 @@ namespace Benchmark
         [Params(16, 1024, 16 * 1024 * 1024)]
         public int Size { get; set; }
 
-        private newmsgpack::MessagePack.MessagePackSerializerOptions options;
-        private short[] input;
-        private short[] zero;
+        private newmsgpack::MessagePack.MessagePackSerializerOptions? options;
+        private short[] input = Array.Empty<short>();
+        private short[] zero = Array.Empty<short>();
 
         [GlobalSetup]
         public void SetUp()
@@ -310,7 +292,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleData()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options!);
         }
 
         [Benchmark]
@@ -322,13 +304,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleDataZero()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(zero, options);
-        }
-
-        [Benchmark]
-        public byte[] SerializeNoSingleInstructionMultipleDataZero()
-        {
-            return oldmsgpack::MessagePack.MessagePackSerializer.Serialize(zero);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(zero, options!);
         }
     }
 
@@ -338,10 +314,10 @@ namespace Benchmark
         [Params(8, 1024, 16 * 1024 * 1024)]
         public int Size { get; set; }
 
-        private newmsgpack::MessagePack.MessagePackSerializerOptions options;
-        private int[] input;
-        private int[] zero;
-        private int[] inputShortMin;
+        private newmsgpack::MessagePack.MessagePackSerializerOptions? options;
+        private int[] input = Array.Empty<int>();
+        private int[] zero = Array.Empty<int>();
+        private int[] inputShortMin = Array.Empty<int>();
 
         [GlobalSetup]
         public void SetUp()
@@ -368,7 +344,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleData()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options!);
         }
 
         [Benchmark]
@@ -380,25 +356,13 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleDataZero()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(zero, options);
-        }
-
-        [Benchmark]
-        public byte[] SerializeNoSingleInstructionMultipleDataZero()
-        {
-            return oldmsgpack::MessagePack.MessagePackSerializer.Serialize(zero);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(zero, options!);
         }
 
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleDataShortMin()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputShortMin, options);
-        }
-
-        [Benchmark]
-        public byte[] SerializeNoSingleInstructionMultipleDataShortMin()
-        {
-            return oldmsgpack::MessagePack.MessagePackSerializer.Serialize(inputShortMin);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(inputShortMin, options!);
         }
     }
 
@@ -408,8 +372,8 @@ namespace Benchmark
         [Params(64, 1024, 16 * 1024 * 1024)]
         public int Size { get; set; }
 
-        private newmsgpack::MessagePack.MessagePackSerializerOptions options;
-        private float[] input;
+        private newmsgpack::MessagePack.MessagePackSerializerOptions? options;
+        private float[] input = Array.Empty<float>();
 
         [GlobalSetup]
         public void SetUp()
@@ -433,7 +397,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleData()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options!);
         }
 
         [Benchmark]
@@ -449,8 +413,8 @@ namespace Benchmark
         [Params(64, 1024, 16 * 1024 * 1024)]
         public int Size { get; set; }
 
-        private newmsgpack::MessagePack.MessagePackSerializerOptions options;
-        private double[] input;
+        private newmsgpack::MessagePack.MessagePackSerializerOptions? options;
+        private double[] input = Array.Empty<double>();
 
         [GlobalSetup]
         public void SetUp()
@@ -474,7 +438,7 @@ namespace Benchmark
         [Benchmark]
         public byte[] SerializeSingleInstructionMultipleData()
         {
-            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options);
+            return newmsgpack::MessagePack.MessagePackSerializer.Serialize(input, options!);
         }
 
         [Benchmark]

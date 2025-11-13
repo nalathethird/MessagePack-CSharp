@@ -2,9 +2,12 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <IsPackable>true</IsPackable>
-    <Title>ASP.NET Core MVC Input/Output MessagePack formatter</Title>
-    <Description>ASP.NET Core MVC Input/Output MessagePack formatter.</Description>
-    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;aspnetcore;aspnetcoremvc;NET9</PackageTags>
+    <Title>ASP.NET Core MVC Input/Output MessagePack formatter (.NET 9 &amp; .NET 10)</Title>
+    <Description>ASP.NET Core MVC Input/Output MessagePack formatter for modern .NET 9 and .NET 10 applications.</Description>
+    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;aspnetcore;aspnetcoremvc;NET9;NET10;WebAPI;MVC</PackageTags>
+    
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,5 +16,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MessagePack\MessagePack.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.9.50" />
   </ItemGroup>
 </Project>

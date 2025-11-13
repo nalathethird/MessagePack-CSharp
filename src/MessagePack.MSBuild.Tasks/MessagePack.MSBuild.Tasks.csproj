@@ -12,14 +12,27 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <DevelopmentDependency>true</DevelopmentDependency>
     <IsPackable>true</IsPackable>
-    <Title>MessagePack CodeGenerator Tasks</Title>
-    <Description>MSBuild Tasks of MessagePack for C# (.NET 9).</Description>
-    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;Unity;Xamarin;NET9</PackageTags>
+    <Title>MessagePack CodeGenerator MSBuild Tasks for NET 9 and NET 10</Title>
+    <Description>MSBuild Tasks of MessagePack for C# targeting .NET 9 and .NET 10 for automated code generation.</Description>
+    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;MSBuild;BuildTasks;NET9;NET10</PackageTags>
+    
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="build\MessagePack.MSBuild.Tasks.targets" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.0.461" />
+    <PackageReference Include="Microsoft.Build" Version="18.0.2" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="18.0.2" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="18.0.2" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="18.0.2" />
+    <PackageReference Include="Microsoft.NETCore.Jit" Version="2.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="NuGet.Common" Version="7.0.0" />
+    <PackageReference Include="NuGet.Packaging" Version="7.0.0" />
+    <PackageReference Include="NuGet.Protocol" Version="7.0.0" />
+    <PackageReference Include="System.CodeDom" Version="10.0.0" />
+    <PackageReference Include="System.Text.Json" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +41,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MessagePack.GeneratorCore\MessagePack.GeneratorCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.9.50" />
   </ItemGroup>
 
   <Target Name="AddBuildOutputAndDependencies">

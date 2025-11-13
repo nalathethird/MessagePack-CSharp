@@ -7,15 +7,20 @@
     <RootNamespace>MessagePack</RootNamespace>
 
     <IsPackable>true</IsPackable>
-    <Title>MessagePack annotations for C# (.NET 9) (.NET 9)</Title>
-    <Description>Attributes and interfaces for .NET types serializable with MessagePack targeting modern .NET 9.</Description>
-    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;NET9</PackageTags>
+    <Title>MessagePack annotations for C# (.NET 9 &amp; .NET 10)</Title>
+    <Description>Attributes and interfaces for .NET types serializable with MessagePack targeting modern .NET 9 and .NET 10.</Description>
+    <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;NET9;NET10;Attributes;Annotations</PackageTags>
+    
+    <!-- Performance and AOT readiness -->
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <EnableAOTAnalyzer>true</EnableAOTAnalyzer>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\Annotations\**\*.cs" />
-    <PackageReference Update="Nerdbank.GitVersioning" Version="3.6.133" />
-    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.7.30" />
+    <PackageReference Update="Nerdbank.GitVersioning" Version="3.9.50" />
+    <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" />
   </ItemGroup>
 
 </Project>
