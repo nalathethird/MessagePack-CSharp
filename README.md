@@ -1,4 +1,4 @@
-# MessagePack for C# (.NET 9)
+# MessagePack for C# (.NET 9) - THE FASTEST BINARY SERIALIZER
 
 [![NuGet](https://img.shields.io/nuget/v/MessagePack.svg)](https://www.nuget.org/packages/messagepack)
 [![NuGet](https://img.shields.io/nuget/vpre/MessagePack.svg)](https://www.nuget.org/packages/messagepack)
@@ -7,8 +7,15 @@
 [![Join the chat at https://gitter.im/MessagePack-CSharp/Lobby](https://badges.gitter.im/MessagePack-CSharp/Lobby.svg)](https://gitter.im/MessagePack-CSharp/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://dev.azure.com/ils0086/MessagePack-CSharp/_apis/build/status/MessagePack-CSharp-CI?branchName=master)](https://dev.azure.com/ils0086/MessagePack-CSharp/_build/latest?definitionId=2&branchName=master)
 
-The extremely fast [MessagePack](http://msgpack.org/) serializer for C#.
-It is 10x faster than [MsgPack-Cli](https://github.com/msgpack/msgpack-cli) and outperforms other C# serializers. MessagePack for C# also ships with built-in support for LZ4 compression - an extremely fast compression algorithm. Performance is important, particularly in applications like games, distributed computing, microservices, or data caches.
+The **FASTEST** [MessagePack](http://msgpack.org/) serializer for C# targeting modern **.NET 9**! 
+
+🚀 **10x faster** than MsgPack-Cli and outperforms all other C# serializers
+⚡ Built-in **LZ4 compression** for extreme speed and compact size
+🎯 **Production-ready** targeting stable `net9.0` with latest performance optimizations
+✨ **Trimming & AOT ready** for cloud-native and high-performance scenarios
+🔥 **SIMD optimizations** and hardware intrinsics support
+
+Perfect for: Games • Distributed Systems • Microservices • Data Caches • Real-time Applications
 
 ![Perf comparison graph](https://cloud.githubusercontent.com/assets/46207/23835716/89c8ab08-07af-11e7-9183-9e9415bdc87f.png)
 
@@ -68,8 +75,15 @@ MessagePack has a compact binary size and a full set of general purpose expressi
 
 This library is distributed via NuGet. Special [Unity support](#unity) is available, too.
 
-This library targets .NET 9 with full support for modern C# 12 features and runtime optimizations. For legacy projects, previous versions supporting .NET Standard 2.0 are available.
-The library code is pure C# (with Just-In-Time IL code generation on some platforms).
+This library targets **.NET 9** with full support for:
+- Latest **C# 12** language features
+- Modern runtime **performance optimizations**
+- **Trimming and AOT compilation** support
+- **Native SIMD** and hardware intrinsics
+- Pure C# implementation with JIT IL code generation
+- Production-ready **stable** build
+
+**Note:** For legacy projects, previous versions supporting .NET Standard 2.0 are still available.
 
 ### NuGet packages
 
