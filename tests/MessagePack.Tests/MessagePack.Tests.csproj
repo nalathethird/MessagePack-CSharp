@@ -21,7 +21,7 @@
     <PackageReference Include="MsgPack.Cli" version="1.0.1" />
     <PackageReference Include="Nerdbank.Streams" Version="2.13.16" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="ReactiveProperty" Version="9.7.0" />
+    <PackageReference Include="ReactiveProperty" Version="9.8.0" />
     <PackageReference Include="System.CodeDom" Version="10.0.0" />
     <PackageReference Include="System.Reactive" Version="6.1.0" />
     <PackageReference Include="xunit" version="2.9.3" />

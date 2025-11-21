@@ -16,7 +16,7 @@
     <Compile Remove="ReactivePropertySlimResolver.cs" />
     <Compile Remove="SlimFormatter.cs" />
     <PackageReference Include="System.Reactive" Version="6.1.0" />
-    <PackageReference Include="ReactiveProperty" Version="9.7.0" />
+    <PackageReference Include="ReactiveProperty" Version="9.8.0" />
   </ItemGroup>
 
   <ItemGroup>
