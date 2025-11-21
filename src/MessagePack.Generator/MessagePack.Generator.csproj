@@ -27,15 +27,16 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Build.Locator" Version="1.11.1" />
-    <PackageReference Include="Microsoft.Build.Framework" Version="18.0.2" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.Build" Version="18.0.2" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.NET.StringTools" Version="18.0.2" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="18.3.0-preview-25571-109" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.Build" Version="18.3.0-preview-25571-109" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.NET.StringTools" Version="18.3.0-preview-25571-109" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.3.0-2.25571.105" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="5.3.0-2.25571.105" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
     <PackageReference Include="Microsoft.NETCore.Jit" Version="2.0.8" />
-    <PackageReference Include="NuGet.Common" Version="7.0.0" />
-    <PackageReference Include="NuGet.Packaging" Version="7.0.0" />
-    <PackageReference Include="NuGet.Protocol" Version="7.0.0" />
+    <PackageReference Include="NuGet.Common" Version="7.0.0" ExcludeAssets="runtime" />
+    <PackageReference Include="NuGet.Packaging" Version="7.0.0" ExcludeAssets="runtime" />
+    <PackageReference Include="NuGet.Protocol" Version="7.0.0" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +46,10 @@
   <ItemGroup>
     <PackageReference Update="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.15" />
     <PackageReference Update="Nerdbank.GitVersioning" Version="3.9.50" />
+    <PackageReference Update="Microsoft.NET.StringTools" Version="18.3.0-preview-25571-109" />
+    <PackageReference Update="Microsoft.Build.Framework" Version="18.3.0-preview-25571-109" />
+    <PackageReference Update="Microsoft.Build" Version="18.3.0-preview-25571-109" />
+    <PackageReference Update="NuGet.Frameworks" Version="7.0.0" />
   </ItemGroup>
 
 </Project>
