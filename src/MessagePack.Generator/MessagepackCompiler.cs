@@ -8,8 +8,6 @@ using System.Runtime.Loader;
 using System.Threading;
 using System.Threading.Tasks;
 using ConsoleAppFramework;
-using Microsoft.Build.Locator;
-using Microsoft.Build.Logging;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
