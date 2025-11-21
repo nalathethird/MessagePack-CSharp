@@ -1,4 +1,4 @@
-﻿// Copyright (c) All contributors. All rights reserved.
+// Copyright (c) All contributors. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System;
@@ -10,9 +10,6 @@ using System.Threading.Tasks;
 using ConsoleAppFramework;
 using Microsoft.Build.Locator;
 using Microsoft.Build.Logging;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.MSBuild;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
