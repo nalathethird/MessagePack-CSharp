@@ -11,7 +11,7 @@
     <Description>Extremely Fast MessagePack(MsgPack) Serializer for C# targeting modern .NET 9 and .NET 10 with cutting-edge performance optimizations.</Description>
     <PackageTags>MsgPack;MessagePack;Serialization;Formatter;Serializer;NET9;NET10;Performance;Binary</PackageTags>
     <AssemblyName>MessagePack</AssemblyName>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     
     <!-- Performance optimizations -->
     <Optimize>true</Optimize>
@@ -24,12 +24,7 @@
 
   <ItemGroup>
     <!-- Include Unity source files but exclude Unity-specific, Annotations, T4, and FloatBits -->
-    <Compile Include="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\**\*.cs" 
-             Exclude="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\Annotations\**;
-                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\Unity\**;
-                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\T4\**;
-                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\FloatBits.cs;
-                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\_InternalVisibleTo.cs" />
+    <Compile Include="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\**\*.cs" Exclude="..\MessagePack.UnityClient\Assets\Scripts\MessagePack\Annotations\**;&#xD;&#xA;                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\Unity\**;&#xD;&#xA;                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\T4\**;&#xD;&#xA;                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\FloatBits.cs;&#xD;&#xA;                      ..\MessagePack.UnityClient\Assets\Scripts\MessagePack\_InternalVisibleTo.cs" />
     <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" PrivateAssets="all" Version="3.3.4" />
     <PackageReference Include="Microsoft.NET.StringTools" PrivateAssets="compile" Version="18.0.2" />
     <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
