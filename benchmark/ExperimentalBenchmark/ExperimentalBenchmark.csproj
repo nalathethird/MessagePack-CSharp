@@ -10,8 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.15.7" />
-    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.15.7" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.15.7">
+      <PrivateAssets>none</PrivateAssets>
+      <ExcludeAssets>analyzers</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.15.7">
+      <PrivateAssets>none</PrivateAssets>
+      <ExcludeAssets>analyzers</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="System.CodeDom" Version="10.0.0" />
   </ItemGroup>
 

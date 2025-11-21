@@ -16,7 +16,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.15.7" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.15.7">
+      <PrivateAssets>none</PrivateAssets>
+      <ExcludeAssets>analyzers</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="Ceras" Version="4.1.7" />
     <PackageReference Include="FsPickler" Version="5.3.2" />
     <PackageReference Include="Hyperion" Version="0.12.2" />
