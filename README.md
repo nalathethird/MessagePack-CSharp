@@ -1,4 +1,4 @@
-# MessagePack for C# (.NET 9) - THE FASTEST BINARY SERIALIZER
+# MessagePack for C# (.NET 10) - THE FASTEST BINARY SERIALIZER
 
 [![NuGet](https://img.shields.io/nuget/v/MessagePack.svg)](https://www.nuget.org/packages/messagepack)
 [![NuGet](https://img.shields.io/nuget/vpre/MessagePack.svg)](https://www.nuget.org/packages/messagepack)
@@ -7,11 +7,11 @@
 [![Join the chat at https://gitter.im/MessagePack-CSharp/Lobby](https://badges.gitter.im/MessagePack-CSharp/Lobby.svg)](https://gitter.im/MessagePack-CSharp/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://dev.azure.com/ils0086/MessagePack-CSharp/_apis/build/status/MessagePack-CSharp-CI?branchName=master)](https://dev.azure.com/ils0086/MessagePack-CSharp/_build/latest?definitionId=2&branchName=master)
 
-The **FASTEST** [MessagePack](http://msgpack.org/) serializer for C# targeting modern **.NET 9**! 
+The **FASTEST** [MessagePack](http://msgpack.org/) serializer for C# targeting modern **.NET 10**! 
 
 🚀 **10x faster** than MsgPack-Cli and outperforms all other C# serializers
 ⚡ Built-in **LZ4 compression** for extreme speed and compact size
-🎯 **Production-ready** targeting stable `net9.0` with latest performance optimizations
+🎯 **Production-ready** targeting stable `net10.0` with latest performance optimizations
 ✨ **Trimming & AOT ready** for cloud-native and high-performance scenarios
 🔥 **SIMD optimizations** and hardware intrinsics support
 
@@ -75,8 +75,8 @@ MessagePack has a compact binary size and a full set of general purpose expressi
 
 This library is distributed via NuGet. Special [Unity support](#unity) is available, too.
 
-This library targets **.NET 9** with full support for:
-- Latest **C# 12** language features
+This library targets **.NET 10** with full support for:
+- Latest **C# 13** language features
 - Modern runtime **performance optimizations**
 - **Trimming and AOT compilation** support
 - **Native SIMD** and hardware intrinsics
