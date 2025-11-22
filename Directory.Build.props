@@ -20,7 +20,7 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
-    <!-- Modern .NET 9 Performance Settings -->
+    <!-- Modern .NET 10 Performance Settings -->
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <TieredCompilation>true</TieredCompilation>
