@@ -55,7 +55,7 @@ jobs:
         echo "**Version:** v${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "The Release workflow will now automatically:" >> $GITHUB_STEP_SUMMARY
-        echo "- Build the project for .NET 9" >> $GITHUB_STEP_SUMMARY
+        echo "- Build the project for .NET 10" >> $GITHUB_STEP_SUMMARY
         echo "- Create NuGet packages" >> $GITHUB_STEP_SUMMARY
         echo "- Bundle DLL files" >> $GITHUB_STEP_SUMMARY
         echo "- Create a GitHub release with all artifacts" >> $GITHUB_STEP_SUMMARY
