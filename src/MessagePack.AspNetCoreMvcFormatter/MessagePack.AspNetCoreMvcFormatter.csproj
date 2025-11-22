@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <IsPackable>true</IsPackable>
     <Title>ASP.NET Core MVC Input/Output MessagePack formatter (.NET 9 &amp; .NET 10)</Title>
     <Description>ASP.NET Core MVC Input/Output MessagePack formatter for modern .NET 9 and .NET 10 applications.</Description>

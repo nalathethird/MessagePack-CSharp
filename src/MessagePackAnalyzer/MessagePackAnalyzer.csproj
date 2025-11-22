@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     
@@ -17,8 +17,7 @@
   <ItemGroup>
     <Content Include="tools\*.ps1" Pack="true" PackagePath="tools\" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.14.0" />
-    <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.0.0" />
   </ItemGroup>
   <ItemDefinitionGroup>
     <PackageReference>

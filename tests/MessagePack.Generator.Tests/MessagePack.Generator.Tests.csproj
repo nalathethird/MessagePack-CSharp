@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <LangVersion>latest</LangVersion>
 
     <IsPackable>false</IsPackable>
@@ -10,13 +10,11 @@
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="8.8.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.14.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.0.0" />
 
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
 
     <PackageReference Include="Nerdbank.Streams" Version="2.13.16" />
-
-    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
 
     <PackageReference Include="xunit" Version="2.9.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">

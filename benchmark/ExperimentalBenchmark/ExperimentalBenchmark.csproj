@@ -2,16 +2,26 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>Benchmark</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <NoWarn>$(NoWarn);MSB3243</NoWarn>
+    <!-- Disable analyzers to prevent compatibility issues with preview .NET versions -->
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.15.7" />
-    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.15.7" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.15.7">
+      <PrivateAssets>none</PrivateAssets>
+      <ExcludeAssets>analyzers</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.15.7">
+      <PrivateAssets>none</PrivateAssets>
+      <ExcludeAssets>analyzers</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="System.CodeDom" Version="10.0.0" />
   </ItemGroup>
 

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <AssemblyName>SerializerBenchmark</AssemblyName>
     <RootNamespace>Benchmark</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -13,10 +13,18 @@
     <Optimize>true</Optimize>
     <TieredCompilation>true</TieredCompilation>
     <TieredCompilationQuickJit>false</TieredCompilationQuickJit>
+    
+    <!-- Disable analyzers to prevent compatibility issues with preview .NET versions -->
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.15.7" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.15.7">
+      <PrivateAssets>none</PrivateAssets>
+      <ExcludeAssets>analyzers</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="Ceras" Version="4.1.7" />
     <PackageReference Include="FsPickler" Version="5.3.2" />
     <PackageReference Include="Hyperion" Version="0.12.2" />
@@ -24,7 +32,6 @@
     <PackageReference Include="MsgPack.Cli" Version="1.0.1" />
     <PackageReference Include="protobuf-net" Version="3.2.56" />
     <PackageReference Include="SpanJson" Version="4.2.1" />
-    <PackageReference Include="System.Text.Json" Version="10.0.0" />
     <PackageReference Include="Utf8Json" Version="1.3.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.3" />
