@@ -6,6 +6,7 @@
     "^refs/heads/v1\\.x$",
     "^refs/heads/v\\d+(?:.\\d+)?$",
     "^refs/heads/develop$",
-    "^refs/heads/upgrade-to-NET9$"
+    "^refs/heads/upgrade-to-NET9$",
+    "^refs/heads/upgrade-to-NET10$"
   ]
 }
